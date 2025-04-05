@@ -1,4 +1,4 @@
-package TaxiConfiguration;
+package javiki.course.TaxiConfiguration;
 
 public class TaxiConfiguration {
     private final int nearbyCarsFirstDistanceKm;
