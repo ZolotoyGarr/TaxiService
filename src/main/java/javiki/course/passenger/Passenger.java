@@ -28,7 +28,6 @@ public class Passenger implements Runnable {
         this.passengerLocation = new PointCoordinates(RANDOM.nextInt(101), RANDOM.nextInt(101)); // случайное местоположение
     }
 
-    // Метод для инициализации пассажира
     public void initializePassenger(OrderPool orderPool, TaxiService taxiService) {
         // Генерация случайного профиля
         this.profile = Profile.generateRandomProfile();
@@ -55,6 +54,7 @@ public class Passenger implements Runnable {
         }
     }
 
+
     @Override
     public void run() {
         try {
@@ -62,9 +62,6 @@ public class Passenger implements Runnable {
             while (status == PassengerStatus.WAITING_FOR_ACCEPTANCE) {
                 Thread.sleep(1000);
             }
-
-            // 3. Пассажир садится в такси
-            LOGGER.info("Пассажир " + profile.getName() + " садится в такси.");
 
             while (status == PassengerStatus.IN_RIDE) {
                 Thread.sleep(3000); // Симуляция поездки
@@ -101,11 +98,11 @@ public class Passenger implements Runnable {
         this.passengerLocation = passengerLocation;
     }
 
-    public OrderRide getCurrentRide() {
+    public OrderRide getCurrentOrder() {
         return currentRide;
     }
 
-    public void setCurrentRide(OrderRide currentRide) {
+    public void setCurrentOrder(OrderRide currentRide) {
         this.currentRide = currentRide;
     }
 

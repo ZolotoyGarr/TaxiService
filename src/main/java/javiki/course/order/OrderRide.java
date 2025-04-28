@@ -11,6 +11,7 @@ public class OrderRide {
     private Passenger passenger;
     private OrderStatus orderStatus;  // Новый статус для заказа
     private Driver driver;
+    private boolean waitingForDriver = false;
 
     public OrderRide(String id, LocalDateTime orderDateTime, Passenger passenger) {
         this.id = id;
@@ -19,7 +20,14 @@ public class OrderRide {
         this.orderStatus = OrderStatus.PENDING;  // Статус заказа по умолчанию
     }
 
-    // Геттеры и сеттеры
+    public boolean isWaitingForDriver() {
+        return waitingForDriver;
+    }
+
+    public void setWaitingForDriver(boolean waitingForDriver) {
+        this.waitingForDriver = waitingForDriver;
+    }
+
     public String getId() {
         return id;
     }
